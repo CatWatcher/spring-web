@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registration</title>
+</head>
+<body>
+
+<form th:action="@{/user/add}" th:object="${appUser}" method="post">
+    <div><input type="text" placeholder="login" th:field="*{login}"></div>
+
+    <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></span>
+
+    <div><input type="text" placeholder="password" th:field="*{password}"></div>
+
+    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+    <input type="submit" value="submit">
+
+</form>
+
+</body>
+</html>

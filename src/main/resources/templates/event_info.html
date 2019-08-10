@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/event/info}">
+    <div>
+        <!--        имя списка-->
+        <select name="eventId">
+            <option th:each="event : ${events}"
+                    th:text="${event.eventTitle}"
+                    th:value="${event.id}">
+
+            </option>
+        </select>
+    </div>
+
+    <input type="submit" value="get data">
+</form>
+
+<div th:if="${event}">
+    <p th:text="${event.eventTitle}"></p>
+    <p th:text="${event.eventStart}"></p>
+    <div th:each="student : ${event.students}">
+        <p th:text="${student.studentName}"></p>
+    </div>
+</div>
+
+
+
+</body>
+</html>
